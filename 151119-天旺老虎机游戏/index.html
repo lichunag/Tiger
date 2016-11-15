@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <meta http-equiv="Cache-Control" CONTENT="no-cache">
+        <link rel="stylesheet" type="text/css" href="css/global.css"/>
+		<title>摇奖</title>
+	</head>
+	<body style="background-color: #c9010e;">
+			<!--预加载-->
+		<div id="loading-mask"></div>
+		<div class="load4" id="loading">
+		<div class="loader">Loading...</div>
+        </div>
+        <!--预加载-->
+         <!--音乐-->
+         <audio src="images/music.mp3" controls="controls" loop="loop" preload id="music1" autoplay="autoplay" hidden></audio>
+         <div class="music-icon rotate"></div>
+         <!--音乐-->	
+		<div class="bg page1-bg1">
+			<img src="images/page1bg1.jpg"/>
+		</div>
+		<div class="bg page1-bg2">
+			<img src="images/page1-bg2.png"/>
+		</div>
+		<div class="bg page1-bg3">
+			<img src="images/page1-of1.png"/>
+		</div>
+		<img src="images/logo.png" class="page1-logo rel"/>	
+		<div class="page1-content rel">
+			<img src="images/page1-title.png" class="page1-title"/>
+			<p class="page1-start-btn" onclick="window.location.href='page2.html'">开始抽奖</p>
+			<center class="page1-tip">活动说明&gt;&gt;</center>
+		</div>
+		<div class="pop tip-pop">
+			<img src="images/close.png" class="abs close tip-close "/>
+			<h1 class="pop-title">活动说明</h1>
+			<div class="white rel pb60 pop-content">
+				<img src="images/pop-bg.png" class="abs pop-bg index-pop-bg"/>
+				<div class="p10 mb30 rel" style="z-index: 2;">
+					<div class="clear">
+					<span class="fl f-bred">1.</span>
+				    <p class="fr per95 f-bred">活动时间：2015.11.21-11.27日,领奖时间：2015.11.28-11.29日,营业时间范围内.</p>	
+					</div>
+					<div class="clear">
+					<span class="fl f-bred">2.</span>
+				    <p class="fr per95 f-bred">开始游戏后点击“开始”按钮进行摇奖,点击“结束”按钮后滚动逐渐停止,当处于中间红线处的三个图片一致时才能获得对应奖品.</p>	
+					</div>
+					<div class="clear">
+					<span class="fl f-bred">3.</span>
+				    <p class="fr per95 f-bred">玩家抽中的礼品将会以礼券形式自动存入天旺商业公众号“我的礼包”菜单里面,未关注公众号的玩家点击“我的奖品”按钮进行关注后才能查看所获得的奖品.</p>	
+					</div>
+					<div class="clear">
+					<span class="fl f-bred">4.</span>
+				    <p class="fr per95 f-bred">每位玩家每天有3次摇奖机会,机会用完后转发到朋友圈可额外获得2次机会，每人每天最多玩5次.</p>	
+					</div>
+					<div class="clear">
+					<span class="fl f-bred">5.</span>
+				    <p class="fr per95 f-bred">获得礼券的顾客请与2015.11.28-11.29营业时间范围内前往天旺广场凭借“我的礼包”内电子券进行兑换,非工作人员请勿自行操作礼券,截图无效过期作废.</p>	
+					</div>
+					<div class="clear">
+					<span class="fl f-bred">6.</span>
+				    <p class="fr per95 f-bred">本活动最终解释权归天旺广场所有.</p>	
+					</div>
+			</div>
+			</div>
+		</div>
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		$(function(){
+			//预加载
+				$("#loading-mask").hide();
+			    $("#loading").hide();
+		})
+			$(window).load(function(){
+			//播放/暂停音乐
+	            $(".music-icon").click(function(){
+	            var audio = document.getElementById('music1'); 
+                if(audio!==null){             
+                if(audio.paused){ audio.play();}
+               else{audio.pause();} 
+                }
+	            $(this).toggleClass("rotate");
+	               $(this).toggleClass("music-shift");		 
+	            })	
+				//关闭弹窗
+				$(".close").click(function(){
+					$(this).parent(".pop").slideUp(300);
+				})
+				//活动说明弹出
+				$(".page1-tip").on("click",function(){
+				  $(".tip-pop").fadeIn(300);
+				})
+			})
+		</script>
+	</body>
+</html>
